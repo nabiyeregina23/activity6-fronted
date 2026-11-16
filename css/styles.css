@@ -1,0 +1,142 @@
+/* ---------- Basics ---------- */
+:root {
+  --blue: #1456a0;
+  --blue-dark: #0e3f75;
+  --grey: #f3f5f8;
+  --border: #c9d1db;
+  --text: #1c2430;
+  --red: #b3261e;
+  --green: #1b7a3a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--grey);
+}
+
+input, select, textarea, button { font: inherit; }
+
+/* ---------- Header and navigation ---------- */
+.site-header {
+  background: var(--blue);
+  color: white;
+  padding: 1rem;
+}
+
+.site-header h1 { margin: 0 0 0.5rem; font-size: 1.5rem; }
+
+nav a {
+  color: white;
+  margin-right: 1rem;
+  text-decoration: underline;
+}
+
+/* ---------- Layout ---------- */
+main { max-width: 960px; margin: 0 auto; padding: 1rem; }
+
+section {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+footer { text-align: center; padding: 1rem; color: #555; }
+
+/* ---------- Form ---------- */
+label { display: block; margin-top: 0.75rem; font-weight: bold; }
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.form-buttons { margin-top: 1rem; display: flex; gap: 0.5rem; }
+
+/* ---------- Buttons ---------- */
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover { background: var(--blue-dark); }
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible { outline: 3px solid #ffb703; outline-offset: 2px; }
+
+button.danger { background: var(--red); }
+button.secondary { background: #5a6572; }
+
+/* ---------- Search and filter ---------- */
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* ---------- Records ---------- */
+.record-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.record-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  background: var(--grey);
+}
+
+.record-card h3 { margin: 0 0 0.25rem; }
+.record-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: white;
+  background: #5a6572;
+}
+.badge.pending { background: #b36b00; }
+.badge.progress { background: var(--blue); }
+.badge.completed { background: var(--green); }
+
+.details {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 8px;
+}
+
+/* ---------- Messages ---------- */
+#message:not(:empty) {
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+#message.success { background: #e6f4ea; color: var(--green); }
+#message.error { background: #fdecea; color: var(--red); }
+
+/* ---------- Narrow screens ---------- */
+@media (max-width: 640px) {
+  .record-grid,
+  .toolbar { grid-template-columns: 1fr; }
+}
